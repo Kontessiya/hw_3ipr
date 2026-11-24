@@ -1,0 +1,14 @@
+name: my
+
+services:
+  hse-counter:
+    build: .
+    ports:
+      - "${MY_PORT:-8080}:8000"
+    volumes:
+      - hse-counter-data:/data
+    environment:
+      - GREETING=${MY_GREETING}
+
+volumes:
+  hse-counter-data:
